@@ -1,1 +1,1 @@
-export const baseUrl='https://cwserver-z1af.onrender.com/'
+export const baseUrl='https://cwserver-z1af.onrender.com/api/'
