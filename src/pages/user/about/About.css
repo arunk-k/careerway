@@ -1,0 +1,25 @@
+.about-page {
+  background-color: #f9fcfd;
+}
+
+.about-page h1, h3, h4 {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.about-page .card {
+  border: none;
+  border-radius: 12px;
+}
+
+.about-page .card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+.about-page .card-title {
+  font-weight: 600;
+}
+
+.about-page .text-muted {
+  font-size: 16px;
+}

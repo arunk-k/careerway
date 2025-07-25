@@ -1,0 +1,67 @@
+/* src/components/admin/sidebar/Sidebar.css */
+.admin-sidebar {
+  background: linear-gradient(135deg, #031f29, #041d2a);
+  color: white;
+  min-height: 100vh;
+  padding: 1rem;
+  width: 220px;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-logo {
+  width: 120px; /* adjust size */
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+
+.sidebar-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  text-align: right;
+}
+
+.admin-sidebar .nav-link {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  display: block;
+}
+
+.admin-sidebar .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 768px) {
+  .admin-sidebar {
+    position: fixed;
+    transform: translateX(-100%);
+    z-index: 1000;
+    height: 100vh;
+  }
+
+  .admin-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+

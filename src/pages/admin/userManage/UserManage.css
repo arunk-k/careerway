@@ -1,0 +1,82 @@
+.user-manage-container {
+  padding: 20px;
+  background-color: #f7f9fc;
+  min-height: 100vh;
+}
+
+.user-manage-heading {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.user-table {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.user-table thead {
+  background-color: #e3f2fd;
+}
+
+.user-table th,
+.user-table td {
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.user-table td {
+  color: #444;
+  font-size: 15px;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+.status-badge.active {
+  background-color: #d4edda;
+  color: #2e7d32;
+}
+
+.status-badge.blocked {
+  background-color: #f8d7da;
+  color: #c62828;
+}
+
+.action-btn {
+  margin-right: 8px;
+  font-size: 13px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.action-btn.block {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.action-btn.unblock {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.action-btn.delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.action-btn:hover {
+  opacity: 0.9;
+  transition: 0.2s ease;
+}

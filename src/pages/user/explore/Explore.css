@@ -1,0 +1,41 @@
+.explore-page {
+  background: #f8fbfd;
+  min-height: 100vh;
+}
+
+.card-title {
+  font-size: 1.125rem; /* Tailwind's text-lg */
+  font-weight: 600;
+}
+
+.card-text {
+  font-size: 0.95rem; /* Slightly smaller for compact look */
+  color: #6c757d;
+}
+
+.explore-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 1rem; /* Tailwind: rounded-2xl */
+  background-color: #fff;
+  padding: 1.5rem 1rem;
+  height: 100%;
+}
+
+.explore-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 144, 198, 0.15);
+}
+
+.btn-outline-primary {
+  border: 2px solid #0890c6;
+  color: #0890c6;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  /* background-color: #0890c6; */
+  color: white;
+  transform: scale(1.05);
+}

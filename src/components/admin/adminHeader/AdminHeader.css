@@ -1,0 +1,8 @@
+
+.admin-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dee2e6;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}

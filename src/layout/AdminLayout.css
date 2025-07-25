@@ -1,0 +1,15 @@
+/* src/styles/AdminLayout.css */
+.admin-layout {
+  display: flex;
+  flex-direction: row;
+}
+
+.admin-main {
+  flex-grow: 1;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.admin-content {
+  padding: 2rem;
+}

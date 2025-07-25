@@ -1,0 +1,40 @@
+.careers-page {
+  padding: 1rem;
+}
+
+.career-header {
+  background: linear-gradient(to right, #2183a6, #195c83);
+}
+
+.careers-table th,
+.careers-table td {
+  vertical-align: middle;
+}
+
+.careers-table tr:hover {
+  background-color: #f1f3f5;
+}
+
+.btn-outline-success:hover,
+.btn-outline-danger:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .career-header h3 {
+    font-size: 1.3rem;
+  }
+
+  .career-header p {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .btn-rounded {
+    border-radius: 20px;
+  }
+}

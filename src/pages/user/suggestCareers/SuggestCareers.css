@@ -1,0 +1,50 @@
+/* Full screen soft background */
+.suggest-page {
+  min-height: 100vh;
+  background: #f7fbfc;
+}
+
+/* Card hover effect for suggested careers */
+.card.hover-zoom {
+  transition: transform 0.2s ease;
+  background-color: #e3f3f1;
+}
+
+.card.hover-zoom:hover {
+  transform: scale(1.03);
+}
+
+/* Interest card base */
+.interest-card {
+  border: 2px solid #0890c6;
+  color: #0890c6;
+  background-color: #f7fbfc;
+  transition: all 0.3s ease;
+  border-radius: 20px;
+}
+
+.interest-card:hover {
+  transform: scale(1.03);
+  background-color: #d4f0f8;
+}
+
+/* Selected state */
+.interest-card.selected {
+  background-color: #0890c6;
+  color: #fff;
+  border-color: #0890c6;
+}
+
+/* Submit button */
+button[type="submit"],
+.btn-success {
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+/* Disable state */
+button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

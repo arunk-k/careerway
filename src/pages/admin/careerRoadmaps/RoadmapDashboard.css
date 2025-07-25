@@ -1,0 +1,30 @@
+/* src/pages/admin/RoadmapDashboard.css */
+.roadmap-page {
+  background: #f8fbfd;
+  min-height: 100vh;
+}
+
+.roadmap-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 1rem;
+  background-color: #fff;
+}
+
+.roadmap-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 144, 198, 0.15);
+}
+
+.btn-outline-primary {
+  border: 2px solid #0890c6;
+  color: #0890c6;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0890c6;
+  color: white;
+  transform: scale(1.05);
+}

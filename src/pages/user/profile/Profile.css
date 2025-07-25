@@ -1,0 +1,60 @@
+.profile-page {
+  background-color: #f8fbfd;
+  min-height: 100vh;
+  font-size: 0.95rem;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-name {
+  color: #0890c6;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* Reusable button base */
+.custom-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1.5px solid;
+  transition: 0.3s;
+}
+
+/* Primary button (Edit) */
+.primary-btn {
+  color: #0890c6;
+  border-color: #0890c6;
+  background-color: transparent;
+}
+.primary-btn:hover {
+  background-color: #0890c6;
+  color: white;
+}
+
+/* Danger button (Logout) */
+.danger-btn {
+  color: #dc3545;
+  border-color: #dc3545;
+  background-color: transparent;
+}
+.danger-btn:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Resume download button */
+.resume-btn {
+  background-color: #137ea8;
+  color: white;
+  border: none;
+}
+.resume-btn:hover {
+  background-color: #0f6e94;
+}

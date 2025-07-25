@@ -1,0 +1,21 @@
+<svg width="300" height="60" viewBox="0 0 300 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cwGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#11b3d4" />
+      <stop offset="100%" stop-color="#034754" />
+    </linearGradient>
+  </defs>
+
+  <text
+    x="50%"
+    y="50%"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-size="32"
+    font-weight="bold"
+    font-family="Arial, sans-serif"
+    fill="url(#cwGradient)"
+  >
+    CAREERWAY
+  </text>
+</svg>
