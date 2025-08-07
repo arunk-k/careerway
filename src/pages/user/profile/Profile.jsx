@@ -51,7 +51,7 @@ const Profile = () => {
       }}
     >
       <div
-        className="profile-card p-4 rounded shadow"
+        className="profile-card mx-3 p-4 rounded shadow"
         style={{
           background: "linear-gradient(to right,#3285acff, #3285acff)",
           maxWidth: "500px",
