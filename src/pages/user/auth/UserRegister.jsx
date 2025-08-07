@@ -46,7 +46,7 @@ const UserRegister = () => {
   return (
     <div className="login-page d-flex align-items-center justify-content-center">
       <div className="login-card shadow p-4 rounded-4">
-        <h2 style={{ color: "#0890c6" }} className="text-center mb-3">Join CareerWay+</h2>
+        <h2 style={{ color: "#0890c6" }} className="text-center mb-3">Join CareerWay</h2>
         <p className="text-center text-muted mb-4">Create your account to get started</p>
 
         <form onSubmit={handleSubmit}>

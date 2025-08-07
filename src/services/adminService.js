@@ -31,11 +31,13 @@ export const deleteUserApi = async (userId) => {
 }
 
 //profile update
-export const updateUserApi = async (data,header) => {
-    return await apiClient(`${baseUrl}auth/updateProfile`, "PUT", header, data);
+export const updateUserApi = async (data) => {
+    const headers = {
+        "Authorization": `Token ${sessionStorage.getItem('token')}`,
+        "Content-Type": "multipart/form-data"
+    }
+    return await apiClient(`${baseUrl}auth/updateProfile`, "PUT", headers, data);
 }
-
-
 
 //careers
 export const addCareerApi = async (data) => {
@@ -90,15 +92,15 @@ export const deleteRoadmapApi = async (id) => {
 };
 
 export const getRoadmapApi = async (careerId = "") => {
-  const headers = {
-    "Authorization": `Token ${sessionStorage.getItem('admintoken')}`
-  };
+    const headers = {
+        "Authorization": `Token ${sessionStorage.getItem('admintoken')}`
+    };
 
-  const url = careerId
-    ? `${baseUrl}admin/roadmap/career/${careerId}`
-    : `${baseUrl}admin/roadmap`;  // NEW endpoint to get all roadmaps
+    const url = careerId
+        ? `${baseUrl}admin/roadmap/career/${careerId}`
+        : `${baseUrl}admin/roadmap`;
 
-  return await apiClient(url, "GET", headers, "");
+    return await apiClient(url, "GET", headers, "");
 };
 
 

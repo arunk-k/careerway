@@ -1,83 +1,136 @@
-import { useEffect, useState } from 'react';
-import './Profile.css';
-import { getUserProfileApi } from '../../../services/userService';
-import { baseUrl } from '../../../components/common/baseUrl';
+import { useEffect, useState } from "react";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
+import Form from "react-bootstrap/Form";
+import { Spinner } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
+import { getUserProfileApi } from "../../../services/userService";
+import { updateUserApi } from "../../../services/adminService";
+import { baseUrl } from "../../../components/common/baseUrl"
 
 const Profile = () => {
-  const [user, setUser] = useState(null);
-  const [userName, setUserName] = useState('');
+  const navigate = useNavigate()
 
-  // Load username from sessionStorage
+  const [data, setData] = useState({ fullName: "", email: "", profileImage: "",address:"" })
+
+  const [preview, setPreview] = useState("")
+
+
   useEffect(() => {
-    const storedName = sessionStorage.getItem("userName");
-    if (storedName) {
-      setUserName(storedName);
+    const fetchData = async () => {
+      const res = await getUserProfileApi()
+      const user = res.data
+      setData({ fullName: user.fullName || "", email: user.email || "", address: user.address || "", profileImage: user.profileImage || "" })
     }
-  }, []);
 
-  // Load user data from API
+    fetchData()
+  }, [])
+
   useEffect(() => {
-    getUserProfileApi()
-      .then((res) => {
-        setUser(res.data);
-      })
-      .catch((err) => {
-        console.error("Error fetching profile:", err);
-      });
-  }, []);
+    if (data.profileImage.type) {
+      setPreview(URL.createObjectURL(data.profileImage))
+    }
+    else {
+      setPreview("")
+    }
+  }, [data.profileImage.type])
+
+  const handleUpdate = async () => {
+
+    await updateUserApi(data)
+
+    navigate("/")
+  }
 
   return (
-    <div className="container py-5 profile-page">
-      <div className="row justify-content-center">
-        <div className="col-md-8">
-          {/* Profile Info Card */}
-          <div className="card shadow-sm p-4 rounded-4">
-            {!user ? (
-              <div className="text-center py-5">Loading your profile...</div>
-            ) : (
-              <div className="d-flex align-items-center gap-4 flex-column flex-md-row">
-                <img
-                  src={
-                    user.profileImage
-                      ? `${baseUrl}image/${user.profileImage}`
-                      : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
-                  }
-                  alt="Profile"
-                  className="profile-img"
-                />
-                <div className="text-start">
-                  <h3 style={{ color: "#0890c6" }}>{userName}</h3>
-                  <p className="text-muted mb-1" style={{ fontSize: "17px" }}>
-                    Email: {user.email}
-                  </p>
-                  <p className="text-muted mb-1" style={{ fontSize: "17px" }}>
-                    Career Goal: Full Stack Developer
-                  </p>
-                  <p className="text-muted" style={{ fontSize: "17px" }}>
-                    Location: Kozhikode, Kerala
-                  </p>
-                  <div className="d-flex gap-2 mt-2">
-                    <button className="custom-btn primary-btn">Edit Profile</button>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
+    <div
+      className="d-flex justify-content-center align-items-center py-5"
+      style={{
+        background: "linear-gradient(to right,#e6f3f7ff, #e6f3f7ff)",
+        
+      }}
+    >
+      <div
+        className="profile-card p-4 rounded shadow"
+        style={{
+          background: "linear-gradient(to right,#3285acff, #3285acff)",
+          maxWidth: "500px",
+          width: "100%"
+        }}
+      >
+        <h3 className="text-light text-center mb-4">My Profile</h3>
 
-          {/* Career Paths Card */}
-          <div className="card text-start shadow-sm p-4 rounded-4 mt-4">
-            <h5 className="mb-3 fw-bold">Your Career Paths</h5>
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item">🧑‍💻 MERN Full Stack Developer</li>
-              <li className="list-group-item">🎨 UI/UX Designer</li>
-              <li className="list-group-item">📊 Data Analyst</li>
-            </ul>
-          </div>
+        <input onChange={e => {
+          console.log(e)
+          setData({ ...data, profileImage: e.target.files[0] })
+        }} className="d-none" type="file" id="myFile" />
+        <label className="d-flex justify-content-center my-4" htmlFor="myFile">
+          <img alt="profileimg" style={{ width: "120px", height: "120px", objectFit: "cover", cursor: "pointer" }} src={preview ? preview : (data.profileImage ? `${baseUrl}image/${data.profileImage}` : "https://cdn-icons-png.flaticon.com/512/8847/8847419.png")} className="img-fluid mx-3 my-2 rounded" />
+        </label>
 
-          {/* Resume Button */}
-          <div className="text-center mt-4">
-            <button className="custom-btn resume-btn">Download Resume (PDF)</button>
-          </div>
+        {/* Full Name */}
+        <FloatingLabel
+          controlId="floatingName"
+          label="Name"
+          className="text-secondary mb-3"
+        >
+          <Form.Control
+            type="text"
+            value={data.fullName}
+            onChange={(e) =>
+              setData({ ...data, fullName: e.target.value })
+            }
+            placeholder="Name"
+          />
+        </FloatingLabel>
+
+        {/* Email */}
+        <FloatingLabel
+          controlId="floatingEmail"
+          label="Email"
+          className="text-secondary mb-3"
+        >
+          <Form.Control
+            type="email"
+            value={data.email}
+            onChange={(e) =>
+              setData({ ...data, email: e.target.value })
+            }
+            placeholder="Email"
+          />
+        </FloatingLabel>
+
+        <FloatingLabel
+          controlId="floatingEmail"
+          label="Address"
+          className="text-secondary mb-3"
+        >
+          <Form.Control
+            as="textarea"
+            value={data.address}
+            onChange={(e) =>
+              setData({ ...data, address: e.target.value })
+            }
+            placeholder="Address"
+          />
+        </FloatingLabel>
+
+
+
+        {/* Buttons */}
+        <div className="d-flex justify-content-center gap-3">
+          <button
+            className="btn btn-light text-dark px-4"
+            onClick={handleUpdate}
+          >
+            Update
+          </button>
+          <button
+            className="btn btn-outline-light px-4"
+            onClick={() => navigate("/")}
+          >
+            Cancel
+          </button>
         </div>
       </div>
     </div>
