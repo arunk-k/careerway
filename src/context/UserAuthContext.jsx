@@ -8,7 +8,7 @@ function UserAuthContext({ children }) {
 
     const [userAuthStatus, setUserAuthStatus] = useState(() => {
         return !!sessionStorage.getItem("token");
-    });
+    })
 
     return (
         <AuthContextUser.Provider value={{ userAuthStatus, setUserAuthStatus }}>
